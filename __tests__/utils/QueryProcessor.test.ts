@@ -17,4 +17,14 @@ describe("QueryProcessor", () => {
             "writer in the English language and the world's pre-eminent dramatist."
           ));
     });
+
+    test('should return What is your Andrew ID? description', () => {
+        const query = "what is your andrew id";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "aabdelza, Abdulraouf Aboubakr" +
+            "Football player, Programmer" +
+            "From Qatar"
+          ));
+    });
 });
