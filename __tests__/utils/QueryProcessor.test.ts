@@ -27,4 +27,12 @@ describe("QueryProcessor", () => {
             "From Qatar"
           ));
     });
+
+    test('should return What is your name? description', () => {
+        const query = "what is your name";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "Abdulraouf Aboubakr"
+          ));
+    });
 });
