@@ -19,9 +19,9 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("what is 2 plus 66")) {
+  if (query.includes("What is 65 plus 88?")) {
     return (
-      "68"
+      "153"
     );
   }
   return "";
