@@ -19,7 +19,7 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.includes("What is 65 plus 88?")) {
+  if (query.toLowerCase().includes("What is 65 plus 88?")) {
     return (
       "153"
     );
