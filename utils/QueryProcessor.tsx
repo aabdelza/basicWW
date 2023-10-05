@@ -32,6 +32,18 @@ export default function QueryProcessor(query: string): string {
     const largestNumber = Math.max(...numbers);
     return largestNumber.toString();
   }
-  
+// 
+
+const squareAndCubeMatch = query.match(/which of the following numbers is both a square and a cube: ([\d, ]+)\?/i);
+  if (squareAndCubeMatch) {
+    const numbers = squareAndCubeMatch[1].split(', ').map(Number);
+    const squareAndCube = numbers.find(num => {
+      const root = Math.cbrt(num);
+      return Number.isInteger(root) && Math.sqrt(num) === root;
+    });
+    return squareAndCube !== undefined ? squareAndCube.toString() : "No number satisfies the condition.";
+  }
+
+
   return "";
 }
