@@ -19,10 +19,19 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("What is 65 plus 88?")) {
-    return (
-      "153"
-    );
+  const additionMatch = query.match(/what is (\d+) plus (\d+)\?/i);
+  if (additionMatch) {
+    const sum = parseInt(additionMatch[1], 10) + parseInt(additionMatch[2], 10);
+    return sum.toString();
   }
+
+  // Check for largest number query
+  const largestNumberMatch = query.match(/which of the following numbers is the largest: ([\d, ]+)\?/i);
+  if (largestNumberMatch) {
+    const numbers = largestNumberMatch[1].split(', ').map(Number);
+    const largestNumber = Math.max(...numbers);
+    return largestNumber.toString();
+  }
+  
   return "";
 }
